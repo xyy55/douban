@@ -1,0 +1,21 @@
+<!--miniprogram/pages/user/user.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view>
+
+
+  <!-- 上传图片 -->
+  <view><button class='get_info' bindtap='get_info'>按钮</button></view>
+
+</view>

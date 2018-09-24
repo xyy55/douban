@@ -1,0 +1,9 @@
+/**index.wxss**/
+.image {
+  display: inline-block;
+  width: 100rpx;
+  height: 142rpx
+}
+.scroll-x {
+  white-space: nowrap
+}

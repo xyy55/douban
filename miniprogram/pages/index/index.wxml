@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<scroll-view scroll-x="true" style="width: 100%">
+  <view class="scroll-x">
+    <view wx:for="{{images}}" class='image'>
+      <image src="{{item}}"/>
+    </view>
+  </view>
+</scroll-view>

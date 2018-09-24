@@ -1,0 +1,40 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/recommendation/recommendation"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "豆瓣",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/index.png",
+        "iconPath": "images/index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/recommendation.png",
+        "iconPath": "images/recommendation.png",
+        "pagePath": "pages/recommendation/recommendation",
+        "text": "推荐"
+      },
+      {
+        "selectedIconPath": "images/user.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "用户中心"
+      }
+    ]
+  }
+}

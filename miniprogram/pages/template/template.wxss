@@ -1,0 +1,30 @@
+/* miniprogram/pages/template/template.wxss */
+.stars{
+  display: inline-block;
+  flex-direction: row;
+  height: 25rpx;
+  margin-right: 6rpx;
+}
+.stars image{
+  padding-left: 3rpx;
+  height: 25rpx;
+  width: 25rpx;
+  display: inline-block
+}
+.star-score{
+  color: #aaa;
+  font-size: .72rem;
+  display: inline-block
+}
+.movie-img {
+  width: 100px;
+  height: 142.84px;
+  display: block
+}
+.rating {
+  color: #aaa;
+  font-size: .72rem;
+  margin-top:12rpx;
+}
+
+

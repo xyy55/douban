@@ -1,9 +1,43 @@
 /**index.wxss**/
-.image {
+@import "../template/template.wxss";
+
+.item {
   display: inline-block;
-  width: 100rpx;
-  height: 142rpx
+  margin: 0 8px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  width: 100px;
 }
 .scroll-x {
-  white-space: nowrap
+  white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+
+
+
+.hot_movie {
+ display: inline-block;
+ font-size: 20px;
+ font-family: '楷体';
+ margin-left: 10px;
+}
+.more {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  color: #42bd56;
+  font-family: '楷体';
+  font-size: 18px
+}
+.theater {
+  margin: 10px 0;
 }

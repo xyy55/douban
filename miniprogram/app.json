@@ -3,12 +3,13 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
-    "pages/recommendation/recommendation"
+    "pages/recommendation/recommendation",
+    "pages/template/template"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#42bd56",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#42bd56",
     "navigationBarTitleText": "豆瓣",
     "navigationBarTextStyle": "black"
   },

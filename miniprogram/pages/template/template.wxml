@@ -1,0 +1,25 @@
+<!--miniprogram/pages/template/template.wxml-->
+<template name="starsTemplate">
+    <view class="stars-container">
+      <view class="stars">
+        <block wx:for="{{stars}}" wx:for-item="i" >
+          <image wx:if="{{i == 2}}" src="../../images/whole_star.png"></image>
+          <image wx:elif="{{i == 1}}" src="../../images/half_star.png"></image>
+          <image wx:else src="../../images/none_star.png"></image>
+        </block>
+      </view>
+      <text class="star-score">{{score}}</text>
+    </view>
+</template>
+<template name="movieTemplate">
+  <view class="movie-container">
+    <image class="movie-img" src="{{movie.img}}"></image>
+    <text class="movie-title">{{movie.title}}</text>
+    <view class='rating'>
+      <block wx:if="{{movie.rating == 0}}">暂无评分</block>
+      <block wx:else>
+        <template is="starsTemplate" data="{{stars:movie.stars,score:movie.rating}}"/>
+      </block>
+    </view>
+  </view>
+</template>

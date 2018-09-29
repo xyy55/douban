@@ -1,9 +1,9 @@
 //index.js
 const app = getApp()
-
+var util = require('../../utils/util.js');
 Page({
   data: {
-    images:[]
+    data:[]
   },
 
   get_hot_movies:function(){
@@ -15,12 +15,18 @@ Page({
       },
       success(res) {
         let data = res.data.subjects;
-        let img = [];
+        let item = {};
+        let d = [];
         for(var i = 0;i<data.length;i++){
-          img.push(data[i].images.small);
+          item = {};
+          item.img = data[i].images.small;
+          item.title = data[i].title;
+          item.rating = data[i].rating.average;
+          item.stars = util.convertToStarsArray(data[i].rating.average);
+          d.push(item);
         }
-        console.log(img);
-        that.setData({images:img});
+        console.log(d)
+        that.setData({data:d});
       }
     })
   },
@@ -31,7 +37,7 @@ Page({
       })
       return
     };
-    get_hot_movies();
+    this.get_hot_movies();
   },
 
   

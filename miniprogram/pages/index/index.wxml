@@ -1,8 +1,13 @@
 <!--index.wxml-->
+<import src="../template/template.wxml"/>
+<view class='theater'>  
+  <view class='hot_movie'>影院热映</view>
+  <view class='more'>更多</view>
+</view>
 <scroll-view scroll-x="true" style="width: 100%">
   <view class="scroll-x">
-    <view wx:for="{{images}}" class='image'>
-      <image src="{{item}}"/>
+    <view wx:for="{{data}}" class='item'>
+      <template is="movieTemplate" data="{{movie:item}}"/>
     </view>
   </view>
 </scroll-view>

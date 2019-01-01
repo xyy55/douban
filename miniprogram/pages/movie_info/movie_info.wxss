@@ -1,0 +1,135 @@
+/* miniprogram/pages/movie_info/movie_info.wxss */
+@import "../template/template.wxss";
+.detail-container {
+  display: block;
+  flex-direction: column;
+  font-size: 24rpx;
+}
+.banner-image {
+  width: 100%;
+  height: 350rpx;
+}
+.poster {
+  position: absolute;
+  width: 100px;
+  height: 142.84px;
+  top: 50px;
+  left: 20px;
+}
+.name {
+  position:absolute;
+  top:70px;
+  font-size:1.2rem;
+  font-style:bold;
+  color:white;
+  left:140px;
+}
+.score-container {
+  position:absolute;
+  top:110px;
+  left:140px;
+  display:flex;
+  flex-direction:row;
+}
+.score {
+  font-size: 60rpx;
+  color: white;
+  line-height: 60rpx;
+}
+.ratingbar-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 5rpx;
+}
+.star-score {
+  display: none
+}
+.comment {
+  color: white;
+  font-size: 20rpx;
+}
+.comment-container{
+  box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 20px;
+  padding: 10px 0 10px 5px;
+}
+.stars image{
+  height: 25rpx;
+  width: 25rpx;
+  display: inline-block
+}
+.no_score {
+  font-size: 30rpx;
+  color: white;
+  margin-top: 10rpx
+}
+.summary,.actor {
+  color: grey;
+  display: block;
+  font-size: 24rpx;
+  margin-top: 10px
+}
+.subject-intro{
+  display:block;
+  padding:0 20px;
+  margin-top: 30px;
+  font-size: 24rpx;
+}
+.text {
+  font-size: 1.2em;
+  margin: 5rpx 40rpx;
+}
+.item {
+  display: inline-block;
+  text-align: center;
+  margin: 0 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  width: 100px;
+}
+.item:first-child{
+  margin: 0 8px 0 20px;
+}
+.item:last-child{
+  margin: 0 20px 0 8px;
+}
+.scroll-x {
+  white-space: nowrap;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+scroll-view {
+  font-size: 24rpx;
+}
+.comment-text,.trailer-text {
+  color: grey;
+  display: block;
+  font-size: 24rpx;
+  margin-top: 10px;
+  padding:0 20px;
+}
+.comments {
+  margin-top: 20px
+}
+.movie-item {
+  display: inline-block;
+  margin: 0 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+video {
+  width: 250px;
+  height: 160px
+}
+.movie-item:first-child{
+  margin: 0 8px 0 20px;
+}
+.movie-item:last-child{
+  margin: 0 20px 0 8px;
+}

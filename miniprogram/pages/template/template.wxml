@@ -12,7 +12,7 @@
     </view>
 </template>
 <template name="movieTemplate">
-  <view class="movie-container">
+  <view class="movie-container" data-id="{{movie.id}}" bindtap='go_info'>
     <image class="movie-img" src="{{movie.img}}"></image>
     <text class="movie-title">{{movie.title}}</text>
     <view class='rating'>
@@ -21,5 +21,27 @@
         <template is="starsTemplate" data="{{stars:movie.stars,score:movie.rating}}"/>
       </block>
     </view>
+  </view>
+</template>
+<template name="actorTemplate">
+  <view class='actor-container'>
+    <image class="actor-img" src="{{actor.avatars.small}}"></image>
+    <text class="actor-name">{{actor.name}}</text>
+  </view>
+</template>
+<template name="commentTemplate">
+  <view class='comment-container'>
+    <view class='name-rate'>
+      <image class="author-img" src="{{comment.author.avatar}}"></image>
+      <text class="author-name">{{comment.author.name}}</text>
+      <view class="stars comment-star">
+        <block wx:for="{{comment.rating.value}}" wx:for-item="i" >
+          <image wx:if="{{i == 2}}" src="../../images/whole_star.png"></image>
+          <image wx:elif="{{i == 1}}" src="../../images/half_star.png"></image>
+          <image wx:else src="../../images/none_star.png"></image>
+        </block>
+      </view>
+    </view>
+    <text class='content'>{{comment.content}}</text>
   </view>
 </template>

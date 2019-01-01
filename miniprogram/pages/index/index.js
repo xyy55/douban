@@ -23,9 +23,9 @@ Page({
           item.title = data[i].title;
           item.rating = data[i].rating.average;
           item.stars = util.convertToStarsArray(data[i].rating.average);
+          item.id = data[i].id;
           d.push(item);
         }
-        console.log(d)
         that.setData({data:d});
       }
     })
@@ -39,6 +39,31 @@ Page({
     };
     this.get_hot_movies();
   },
+  go_info:function(e){
+    let a = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../movie_info/movie_info?id='+a,
+      success: function (res) {
+        return
+      },
+    })
+  },
+  more:function(){
+    wx.navigateTo({
+      url: '../more/more',
+      success: function (res) {
+        return
+      },
+    })
+  },
+  search:function(){
+    wx.navigateTo({
+      url: '../search/search',
+      success: function (res) {
+        return
+      },
+    })
+  }
 
   
 })

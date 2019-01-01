@@ -1,8 +1,11 @@
 <!--index.wxml-->
 <import src="../template/template.wxml"/>
+<view class='search'>
+  <text class='search-btn' bindtap='search'>搜索</text>
+</view>
 <view class='theater'>  
   <view class='hot_movie'>影院热映</view>
-  <view class='more'>更多</view>
+  <view class='more' bindtap='more'>更多</view>
 </view>
 <scroll-view scroll-x="true" style="width: 100%">
   <view class="scroll-x">

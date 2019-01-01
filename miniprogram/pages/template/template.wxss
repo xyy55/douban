@@ -26,5 +26,31 @@
   font-size: .72rem;
   margin-top:12rpx;
 }
+.actor-img {
+  width: 100px;
+  height: 142.84px;
+  display: block
+}
+.author-img {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align:middle;
+}
+.name-rate {
+  font-size: 30rpx;
+  display: block;
+}
+.author-name,.comment-star {
+  display: inline-block;
+  margin-left: 8px
+}
+.content {
+  display: block;
+  font-size: 30rpx;
+}
+.comment-container {
+  padding: 0 20px
+}
 
 

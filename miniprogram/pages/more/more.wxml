@@ -1,0 +1,8 @@
+<!--miniprogram/pages/more/more.wxml-->
+<import src="../template/template.wxml"/>
+<view class='content'>
+  <view wx:for="{{data}}" class='item'>
+    <template is="movieTemplate" data="{{movie:item}}"/>
+  </view>
+</view>
+

@@ -1,0 +1,19 @@
+<!--miniprogram/pages/search/search.wxml-->
+<import src="../template/template.wxml"/>
+<view class='search'>
+  <input placeholder="搜索" auto-focus name='search' bindconfirm="getSearch" bindinput='searchInput'/>
+</view>
+<view wx:for="{{data}}" class='item'>
+  <view class="movie-container" data-id="{{item.id}}" bindtap='go_info'>
+    <image class="movie-img" src="{{item.img}}"></image>
+    <view class='name'>
+      <text class='title'>{{item.title}}</text>
+      <view class='rating'>
+        <block wx:if="{{item.rating == 0}}">暂无评分</block>
+        <block wx:else>
+          <template is="starsTemplate" data="{{stars:item.stars,score:item.rating}}"/>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

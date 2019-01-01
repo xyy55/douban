@@ -1,0 +1,53 @@
+<!--miniprogram/pages/movie_info/movie_info.wxml-->
+<import src="../template/template.wxml"/>
+<view class='detail-container'>
+  <!--顶部背景图-->
+  <image class='banner-image' src='{{poster}}' mode='aspectFill'></image>
+  <image class='poster' src="{{poster}}"></image>
+  <text class='name'>{{name}}</text>
+  <view class='score-container'>
+    <!--电影评分-->
+    <block wx:if="{{rating == 0}}">
+      <text class='no_score'>暂无评分</text>
+    </block>
+    <block wx:else>
+      <text class='score'>{{rating}}</text>
+      <view class='ratingbar-comment'>
+        <!--评分星星条-->
+        <view class="stars">
+          <block wx:for="{{stars}}" wx:for-item="i" >
+            <image wx:if="{{i == 2}}" src="../../images/whole_star.png"></image>
+            <image wx:elif="{{i == 1}}" src="../../images/half_star.png"></image>
+            <image wx:else src="../../images/none_star.png"></image>
+          </block>
+        </view>
+        <!--评价人数-->
+        <text class='comment'>{{comment_num}}人评价</text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='subject-intro'>
+    <text class='summary'>{{name}}的剧情简介</text>
+    <text class='text'>{{summary}}</text>
+    <text class='actor'>{{name}}的演职员</text>
+</view>
+<scroll-view scroll-x="true" style="width: 100%">
+  <view class="scroll-x">
+    <view wx:for="{{casts}}" class='item'>
+      <template is="actorTemplate" data="{{actor:item}}"/>
+    </view>
+  </view>
+</scroll-view>
+<text class='trailer-text'>{{name}}的预告片</text>
+<scroll-view scroll-x="true" style="width: 100%">
+  <view class="scroll-x">
+    <view wx:for="{{trailer_urls}}" class='movie-item'>
+      <video src='{{item}}' objectFit='fill'></video>
+    </view>
+  </view>
+</scroll-view>
+<text class='comment-text'>{{name}}的短评</text>
+<view wx:for="{{popular_comments}}" class='comments'>
+  <template is="commentTemplate" data="{{comment:item}}"/>
+</view>

@@ -1,0 +1,14 @@
+/* miniprogram/pages/more/more.wxss */
+@import "../template/template.wxss";
+.item {
+  display: inline-block;
+  margin: 0 8px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  width: 100px;
+}
+.content {
+  margin-top: 4px;
+}

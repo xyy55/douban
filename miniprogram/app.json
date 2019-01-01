@@ -4,7 +4,10 @@
     "pages/index/index",
     "pages/user/user",
     "pages/recommendation/recommendation",
-    "pages/template/template"
+    "pages/template/template",
+    "pages/more/more",
+    "pages/movie_info/movie_info",
+    "pages/search/search"
   ],
   "window": {
     "backgroundColor": "#42bd56",

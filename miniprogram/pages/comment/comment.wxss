@@ -1,0 +1,35 @@
+/* miniprogram/pages/comment/comment.wxss */
+.star {
+  text-align: center;
+  margin-top: 30px;
+  display: block;
+  margin-bottom: 30px
+}
+.star image{
+  padding-left: 15rpx;
+  height: 60rpx;
+  width: 60rpx;
+  display: inline-block
+}
+textarea {
+  display: block;
+  width: 300px;
+  height: 150px;
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
+  margin: auto
+}
+.btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 30px auto;
+  border-radius: 5px;
+  width: 100px
+}

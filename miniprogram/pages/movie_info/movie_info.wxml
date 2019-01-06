@@ -51,3 +51,8 @@
 <view wx:for="{{popular_comments}}" class='comments'>
   <template is="commentTemplate" data="{{comment:item}}"/>
 </view>
+<view class='btns'>
+  <text class='btn' bindtap='go_comment' data-id='{{id}}' data-name="{{name}}">评论</text>
+  <text class='btn' bindtap='get_movie_link' data-name="{{name}}">获取下载链接</text>
+</view>
+

@@ -1,2 +1,7 @@
 <!--miniprogram/pages/recommendation/recommendation.wxml-->
-<text>miniprogram/pages/recommendation/recommendation.wxml</text>
+<import src="../template/template.wxml"/>
+<view class='content'>
+  <view wx:for="{{data}}" class='item'>
+    <template is="movieTemplate" data="{{movie:item}}"/>
+  </view>
+</view>

@@ -1,21 +1,14 @@
 <!--miniprogram/pages/user/user.wxml-->
 <view class="container">
-
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-    </view>
+  <image src='{{avatarUrl}}'></image>
+  <view class='id' style='display:{{show}}'>
+    <input name='id' bindconfirm="login" bindinput='idInput'/>
+    <text class='text' bindtap='login'>同步</text>
   </view>
-
-
-  <!-- 上传图片 -->
-  <view><button class='get_info' bindtap='get_info'>按钮</button></view>
-
+  <text class='name'>{{name}}</text>
+  <text class='intro'>{{intro}}</text>
+  <view class='update' style='display:{{show1}}'>
+    <text class='btn' bindtap='update'>同步影评数据</text>
+    <text class='btn btn1' bindtap='recommend'>生成个性推荐</text>
+  </view>
 </view>

@@ -8,6 +8,7 @@ Page({
   data: {
     data:[],
     pageIndex:0,
+    url:[],
     load:true
   },
 
@@ -15,7 +16,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.get_hot_movies(0)
+    var type = options.type;
+    let url = '';
+    if (type == 'more'){
+      this.setData({ url: 'https://douban.uieee.com/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&start=' });
+    }else{
+      this.setData({ url: 'https://douban.uieee.com/v2/movie/top250?start=' });
+    }
+    this.get_hot_movies(this.data.url,0)
   },
 
   /**
@@ -62,7 +70,7 @@ Page({
       that.setData({
         pageIndex: that.data.pageIndex + 20
       });
-      this.get_hot_movies(that.data.pageIndex)
+      this.get_hot_movies(that.data.url,that.data.pageIndex)
     }
   },
 
@@ -72,10 +80,10 @@ Page({
   onShareAppMessage: function () {
 
   },
-  get_hot_movies: function (start) {
+  get_hot_movies: function (url,start) {
     let that = this;
     wx.request({
-      url: 'https://douban.uieee.com/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&start='+start+'&count=20',
+      url: url+start+'&count=20',
       header: {
         "content-type": "json"
       },

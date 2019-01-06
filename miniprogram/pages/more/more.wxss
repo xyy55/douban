@@ -1,5 +1,8 @@
 /* miniprogram/pages/more/more.wxss */
 @import "../template/template.wxss";
+page {
+  text-align: center
+}
 .item {
   display: inline-block;
   margin: 0 8px;

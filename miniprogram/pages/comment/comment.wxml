@@ -1,0 +1,16 @@
+<!--miniprogram/pages/comment/comment.wxml-->
+<view class='star'>
+  <block wx:for="{{w_num}}" wx:key="index" >
+    <image bindtap='tap' id='{{index+1}}' data-in='star' src="../../images/whole_star.png"></image>
+  </block>
+  <block wx:for="{{n_num}}" wx:key="index" >
+    <image bindtap='tap' id='{{index+1}}' data-in='starg' src="../../images/none_star.png"></image>
+  </block>
+</view>
+<textarea class="text"
+          auto-focus
+          show-confirm-bar="false" 
+          cursor-spacing="15" 
+          bindinput='idInput'
+          placeholder="评论{{name}}"></textarea>
+<text class='btn' bindtap='confirm'>提交</text>

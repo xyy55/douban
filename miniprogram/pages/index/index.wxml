@@ -14,3 +14,24 @@
     </view>
   </view>
 </scroll-view>
+<view class='theater'>  
+  <view class='hot_movie'>本周口碑榜</view>
+</view>
+<scroll-view scroll-x="true" style="width: 100%">
+  <view class="scroll-x">
+    <view wx:for="{{hot}}" class='item'>
+      <template is="movieTemplate" data="{{movie:item}}"/>
+    </view>
+  </view>
+</scroll-view>
+<view class='theater'>  
+  <view class='hot_movie'>豆瓣电影Top250</view>
+  <view class='more' bindtap='top'>更多</view>
+</view>
+<scroll-view scroll-x="true" style="width: 100%">
+  <view class="scroll-x">
+    <view wx:for="{{top}}" class='item'>
+      <template is="movieTemplate" data="{{movie:item}}"/>
+    </view>
+  </view>
+</scroll-view>

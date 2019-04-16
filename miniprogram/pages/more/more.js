@@ -19,9 +19,11 @@ Page({
     var type = options.type;
     let url = '';
     if (type == 'more'){
-      this.setData({ url: 'https://douban.uieee.com/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&start=' });
+//      this.setData({ url: 'http://api.ohmylove.ooo/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&//start=' });
+      this.setData({ url:'https://frodo.douban.com/api/v2/subject_collection/movie_showing/items?apiKey=054022eaeae0b00e0fc068c0c0a2102a&start='})
     }else{
-      this.setData({ url: 'https://douban.uieee.com/v2/movie/top250?start=' });
+      //this.setData({ url: 'http://api.ohmylove.ooo/v2/movie/top250?start=' });
+      this.setData({ url: 'https://frodo.douban.com/api/v2/subject_collection/movie_top250/items?apiKey=054022eaeae0b00e0fc068c0c0a2102a&start=' });
     }
     this.get_hot_movies(this.data.url,0)
   },
@@ -85,10 +87,10 @@ Page({
     wx.request({
       url: url+start+'&count=20',
       header: {
-        "content-type": "json"
+        "content-type": "json",
       },
       success(res) {
-        let data = res.data.subjects;
+        let data = res.data.subject_collection_items;
         let item = {};
         let d = that.data.data;
         if(data.length == 0){
@@ -97,10 +99,15 @@ Page({
         }
         for (var i = 0; i < data.length; i++) {
           item = {};
-          item.img = data[i].images.small;
+          item.img = data[i].cover.url;
           item.title = data[i].title;
-          item.rating = data[i].rating.average;
-          item.stars = util.convertToStarsArray(data[i].rating.average);
+          if (data[i].rating == null){
+            item.rating = 0;
+            item.stars = util.convertToStarsArray(0)
+          }else{
+            item.rating = data[i].rating.value;
+            item.stars = util.convertToStarsArray(data[i].rating.value);
+          }
           item.id = data[i].id;
           d.push(item);
         }

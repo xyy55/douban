@@ -11,20 +11,26 @@ Page({
   get_hot_movies:function(){
     let that = this;
     wx.request({
-      url: 'https://douban.uieee.com/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&start=0&count=8', 
+      //url: 'https://douban.uieee.com/v2/movie/in_theaters?city=%E5%8C%97%E4%BA%AC&start=0&count=8', 
+      url:"https://frodo.douban.com/api/v2/subject_collection/movie_showing/items?start=0&count=8&apiKey=054022eaeae0b00e0fc068c0c0a2102a",     
       header: {
         "content-type": "json"
       },
       success(res) {
-        let data = res.data.subjects;
+        let data = res.data.subject_collection_items;
         let item = {};
         let d = [];
         for(var i = 0;i<data.length;i++){
           item = {};
-          item.img = data[i].images.small;
+          item.img = data[i].cover.url;
           item.title = data[i].title;
-          item.rating = data[i].rating.average;
-          item.stars = util.convertToStarsArray(data[i].rating.average);
+          if (data[i].rating == null) {
+            item.rating = 0;
+            item.stars = util.convertToStarsArray(0)
+          } else {
+            item.rating = data[i].rating.value;
+            item.stars = util.convertToStarsArray(data[i].rating.value);
+          }
           item.id = data[i].id;
           d.push(item);
         }
@@ -35,23 +41,27 @@ Page({
   get_weekly_movies: function () {
     let that = this;
     wx.request({
-      url: 'https://douban.uieee.com/v2/movie/weekly',
+      //url: 'https://douban.uieee.com/v2/movie/weekly',
+      url:"https://frodo.douban.com/api/v2/subject_collection/movie_weekly_best/items?start=0&count=20&apiKey=054022eaeae0b00e0fc068c0c0a2102a",
       header: {
         "content-type": "json"
       },
       success(res) {
-        let hot = res.data.subjects;
-        let data = [];
+        let data = res.data.subject_collection_items;
         let item = {};
         let d = [];
-        for (var i = 0; i < hot.length; i++) {
-          data = hot[i].subject;
+        for (var i = 0; i < data.length; i++) {
           item = {};
-          item.img = data.images.small;
-          item.title = data.title;
-          item.rating = data.rating.average;
-          item.stars = util.convertToStarsArray(data.rating.average);
-          item.id = data.id;
+          item.img = data[i].cover.url;
+          item.title = data[i].title;
+          if (data[i].rating == null) {
+            item.rating = 0;
+            item.stars = util.convertToStarsArray(0)
+          } else {
+            item.rating = data[i].rating.value;
+            item.stars = util.convertToStarsArray(data[i].rating.value);
+          }
+          item.id = data[i].id;
           d.push(item);
         }
         that.setData({ hot: d });
@@ -61,21 +71,27 @@ Page({
   get_top_movies: function () {
     let that = this;
     wx.request({
-      url: 'https://douban.uieee.com/v2/movie/top250',
+      //url: 'https://douban.uieee.com/v2/movie/top250',
+      url:"https://frodo.douban.com/api/v2/subject_collection/movie_top250/items?start=0&count=20&apiKey=054022eaeae0b00e0fc068c0c0a2102a",
       header: {
         "content-type": "json"
       },
       success(res) {
-        let top = res.data.subjects;
+        let data = res.data.subject_collection_items;
         let item = {};
         let d = [];
-        for (var i = 0; i < top.length; i++) {
+        for (var i = 0; i < data.length; i++) {
           item = {};
-          item.img = top[i].images.small;
-          item.title = top[i].title;
-          item.rating = top[i].rating.average;
-          item.stars = util.convertToStarsArray(top[i].rating.average);
-          item.id = top[i].id;
+          item.img = data[i].cover.url;
+          item.title = data[i].title;
+          if (data[i].rating == null) {
+            item.rating = 0;
+            item.stars = util.convertToStarsArray(0)
+          } else {
+            item.rating = data[i].rating.value;
+            item.stars = util.convertToStarsArray(data[i].rating.value);
+          }
+          item.id = data[i].id;
           d.push(item);
         }
         that.setData({ top: d });
@@ -125,7 +141,19 @@ Page({
         return
       },
     })
-  }
+  },
+/**
+* 页面相关事件处理函数--监听用户下拉动作
+*/
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
+    this.setData({ data: [],
+                   hot:[],
+                   top:[] });
+    this.get_hot_movies();
+    this.get_weekly_movies();
+    this.get_top_movies();
+  },
 
   
 })

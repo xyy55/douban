@@ -19,20 +19,25 @@ Page({
   getSearch: function(e){
     let that = this;
     wx.request({
-      url: 'http://api.ohmylove.ooo/v2/movie/search?q='+this.data.inputValue,
+      //url: 'http://api.ohmylove.ooo/v2/movie/search?q='+this.data.inputValue,
+      url: 'https://m.douban.com/rexxar/api/v2/search?type=movie&q=' + this.data.inputValue,
       header: {
         "content-type": "json"
       },
       success(res) {
         let data = res.data.subjects;
+        console.log(data)
         let item = {};
         let d = [];
         for (var i = 0; i < data.length; i++) {
           item = {};
-          item.img = data[i].images.small;
+          //item.img = data[i].images.small;
+          item.img = data[i].pic.normal;
           item.title = data[i].title;
-          item.rating = data[i].rating.average;
-          item.stars = util.convertToStarsArray(data[i].rating.average);
+          //item.rating = data[i].rating.average;
+          item.rating = data[i].rating.value;
+          //item.stars = util.convertToStarsArray(data[i].rating.average);
+          item.stars = util.convertToStarsArray(data[i].rating.value);
           item.id = data[i].id;
           d.push(item);
         }

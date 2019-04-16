@@ -55,7 +55,7 @@ Page({
         if (code) {
           console.log('获取用户登录凭证：' + code);
           wx.request({
-            url: 'http://127.0.0.1:8000/make_comment/',
+            url: 'http://114.116.105.255:8000/make_comment/',
             method: 'POST',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             data: {

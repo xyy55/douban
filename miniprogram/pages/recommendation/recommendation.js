@@ -27,7 +27,7 @@ Page({
         if (code) {
           console.log('获取用户登录凭证：' + code);
           wx.request({
-            url: 'http://127.0.0.1:8000/get_recommendation/',
+            url: 'http://114.116.105.255:8000/get_recommendation/',
             method: 'POST',
             header: { 'content-type': 'application/x-www-form-urlencoded' },
             data: {
@@ -68,6 +68,14 @@ Page({
   onLoad: function (options) {
     this.recommend();
   },
+  /**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
+    this.setData({ data: [] });
+    this.recommend();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -94,13 +102,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
   },
 

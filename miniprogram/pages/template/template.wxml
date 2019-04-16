@@ -25,15 +25,15 @@
 </template>
 <template name="actorTemplate">
   <view class='actor-container'>
-    <image class="actor-img" src="{{actor.avatars.small}}"></image>
+    <image class="actor-img" src="{{actor.avatar.normal}}"></image>
     <text class="actor-name">{{actor.name}}</text>
   </view>
 </template>
 <template name="commentTemplate">
   <view class='comment-container'>
     <view class='name-rate'>
-      <image class="author-img" src="{{comment.author.avatar}}"></image>
-      <text class="author-name">{{comment.author.name}}</text>
+      <image class="author-img" src="{{comment.user.avatar}}"></image>
+      <text class="author-name">{{comment.user.name}}</text>
       <view class="stars comment-star">
         <block wx:for="{{comment.rating.value}}" wx:for-item="i" >
           <image wx:if="{{i == 2}}" src="../../images/whole_star.png"></image>
@@ -42,6 +42,6 @@
         </block>
       </view>
     </view>
-    <text class='content'>{{comment.content}}</text>
+    <text class='content'>{{comment.comment}}</text>
   </view>
 </template>
